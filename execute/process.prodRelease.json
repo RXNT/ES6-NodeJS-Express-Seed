@@ -1,0 +1,10 @@
+{
+  "apps" : [{
+    "name"        : "RxNTSeedAPIService",
+    "script"      : "./index.js",
+    "watch"       : false,
+    "env": {
+      "DeploymentEnv": "prodRelease",
+    }
+  }]
+}
