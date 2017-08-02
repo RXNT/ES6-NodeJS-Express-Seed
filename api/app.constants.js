@@ -9,6 +9,14 @@ exports.companymongoController = {
   },
 };
 
+exports.encountermongoController = {
+  ownerType: 'api.controllers.encountermongo.controller',
+  routeName: '/utilities',
+  routeMethods: {
+    getStatusRoute: '/getAllUploadFilesStatuses',
+  },
+};
+
 exports.patientsqlController = {
   ownerType: 'api.controllers.patientsql.controller',
   routeName: '/patients',
@@ -40,6 +48,7 @@ exports.eventType = {
 
 exports.mongoCollections = {
   companies: 'companies',
+  encounters: 'encounters',
 };
 
 exports.applicationMessages = {
@@ -55,5 +64,6 @@ exports.ownerTypes = {
     validatorHelper: 'api.validators.validate.helper',
     patientSqlValidator: 'api.validators.patientsql.validators',
     companyMongoValidator: 'api.validators.companymongo.validators',
+    encounterMongoValidator: 'api.validators.encountermongo.validators',
   },
 };
