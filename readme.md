@@ -68,23 +68,23 @@ We will follow the instructions by adding a `Student` registartion API which wil
 
 We will follow the instructions by adding a `Student` registartion API which will connect to mongodb
 
-1. Create mongodb collection model under `api\models` folder
+1. Add new `student.dal.js` file under `api\dal` folder
 
-2. Import model created in `step(1)` in `api\models\index`
+  a. Export a method named as `registerStudent`
 
-3. Add new validator file under `api\validators\student.validators.js` to implement request validation using `Joi`
+2. Add new validator file under `api\validators\student.validators.js` to implement request validation using `Joi`
 
    a. Export a method named as `validateRegisterStudent`
 
-4. Add new controller under `api\controllers` folder with file name as `student.controller.js`
+3. Add new controller under `api\controllers` folder with file name as `student.controller.js`
 
    a. Export a method named as `registerStudent`
 
    b. Before processing request, validate request object by importing validator method created in `step (3)`
 
-   c. If valid request, process request with required logic
+   c. If valid request, process request with required logic by consuming method created in `step-1`
 
-5. Define API route path for new method under `api\app.constants.js` as below
+4. Define API route path for new method under `api\app.constants.js` as below
 
    `exports.studentController = {
       routeName: '/students',
@@ -93,7 +93,7 @@ We will follow the instructions by adding a `Student` registartion API which wil
       },
     };`
 
-6. Create new route file under `api\routes\student.route.js`. Attach route path(defined in `step-5`) and controller method(defined in `step-4`) as below
+5. Create new route file under `api\routes\student.route.js`. Attach route path(defined in `step-5`) and controller method(defined in `step-4`) as below
 
     `import express from 'express';`
 
@@ -105,7 +105,7 @@ We will follow the instructions by adding a `Student` registartion API which wil
 
     `router.route(appConstants.studentController.routeMethods.registerStudentRoute).post(studentCtrl.registerStudent);`
 
-7.  Import route file(defined in `step-6`) in `api\routes\index.route.js` file and attach route
+6.  Import route file(defined in `step-6`) in `api\routes\index.route.js` file and attach route
 
     `import studentRoutes from './student.route';`
 
