@@ -4,10 +4,10 @@ import httpMessages from '../helpers/http-messages';
 import appConstants from '../app.constants';
 import models from '../models/index'; // eslint-disable-line
 import helper from '../helpers/common.helper';
-import utilitiesValidator from '../validators/encountermongo.validators';
+import encounterMongoValidator from '../validators/encountermongo.validators';
 
-exports.getEncounters = (req, res, next) => { // eslint-disable-line
-  utilitiesValidator.validateGetEncounters(req.body, (err, validationMsg) => {
+const getEncounters = (req, res, next) => { // eslint-disable-line
+  encounterMongoValidator.validateGetEncounters(req.body, (err, validationMsg) => {
     if (err) {
       httpMessages.sendJson(req, res, helper.prepareErrorObject(err, req));
     } else if (validationMsg !== null && validationMsg !== undefined && validationMsg.length > 0) {
@@ -42,4 +42,8 @@ exports.getEncounters = (req, res, next) => { // eslint-disable-line
       });
     }
   });
+};
+
+export default {
+  getEncounters,
 };

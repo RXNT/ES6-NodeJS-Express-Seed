@@ -4,10 +4,10 @@ import httpMessages from '../helpers/http-messages';
 import appConstants from '../app.constants';
 import models from '../models/index'; // eslint-disable-line
 import helper from '../helpers/common.helper';
-import utilitiesValidator from '../validators/companymongo.validators';
+import compnayMongoValidator from '../validators/companymongo.validators';
 
 const getCompanies = (req, res, next) => { // eslint-disable-line
-  utilitiesValidator.validateGetCompanies(req.body, (err, validationMsg) => {
+  compnayMongoValidator.validateGetCompanies(req.body, (err, validationMsg) => {
     if (err) {
       httpMessages.sendJson(req, res, helper.prepareErrorObject(err, req));
     } else if (validationMsg !== null && validationMsg !== undefined && validationMsg.length > 0) {

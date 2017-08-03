@@ -9,7 +9,7 @@ const getEncountersSchema = {
   encounterId: Joi.number().required(),
 };
 
-exports.validateGetEncounters = (request, callback) => {
+const validateGetEncounters = (request, callback) => {
   try {
     validateHelper.validateRequest(request, getEncountersSchema, (err, data) => {
       callback(err, data);
@@ -24,4 +24,8 @@ exports.validateGetEncounters = (request, callback) => {
       source: `${appConstants.ownerTypes.validators.encounterMongoValidator}.validateGetEncounters`,
     }, null);
   }
+};
+
+export default {
+  validateGetEncounters,
 };
