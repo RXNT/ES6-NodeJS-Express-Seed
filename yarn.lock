@@ -1418,12 +1418,6 @@ debug@2.3.0:
   dependencies:
     ms "0.7.2"
 
-debug@2.6.0:
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.0.tgz#bc596bcabe7617f11d9fa15361eded5608b8499b"
-  dependencies:
-    ms "0.7.2"
-
 debug@2.6.7:
   version "2.6.7"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.7.tgz#92bad1f6d05bbb6bba22cca88bcd0ec894c2861e"
@@ -1688,7 +1682,7 @@ eslint-module-utils@^2.1.1:
     debug "^2.6.8"
     pkg-dir "^1.0.0"
 
-eslint-plugin-import@^2.7.0:
+eslint-plugin-import@2.7.0:
   version "2.7.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-import/-/eslint-plugin-import-2.7.0.tgz#21de33380b9efb55f5ef6d2e210ec0e07e7fa69f"
   dependencies:
@@ -2635,9 +2629,9 @@ hawk@~3.1.3:
     hoek "2.x.x"
     sntp "1.x.x"
 
-helmet-csp@2.5.0:
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/helmet-csp/-/helmet-csp-2.5.0.tgz#fdd6745163404fc56cd24761fd9a379c041b1ce9"
+helmet-csp@2.5.1:
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/helmet-csp/-/helmet-csp-2.5.1.tgz#5f3deec8f922fa7e074dbc3987c168a50573c36d"
   dependencies:
     camelize "1.0.0"
     content-security-policy-builder "1.1.0"
@@ -2645,16 +2639,16 @@ helmet-csp@2.5.0:
     lodash.reduce "4.6.0"
     platform "1.3.4"
 
-helmet@^3.1.0:
-  version "3.8.0"
-  resolved "https://registry.yarnpkg.com/helmet/-/helmet-3.8.0.tgz#bba0bfeebe4832967188e4cd233a3d444903e1a7"
+helmet@^3.8.1:
+  version "3.8.1"
+  resolved "https://registry.yarnpkg.com/helmet/-/helmet-3.8.1.tgz#bef2b68ffbaa19759e858c19cca7db213bb58b2d"
   dependencies:
     connect "3.6.2"
     dns-prefetch-control "0.1.0"
     dont-sniff-mimetype "1.0.0"
     expect-ct "0.1.0"
     frameguard "3.0.0"
-    helmet-csp "2.5.0"
+    helmet-csp "2.5.1"
     hide-powered-by "1.0.0"
     hpkp "2.0.0"
     hsts "2.1.0"
@@ -3599,13 +3593,13 @@ mkdirp@0.5.1, mkdirp@0.5.x, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1:
   dependencies:
     minimist "0.0.8"
 
-mocha@^3.4.2:
-  version "3.4.2"
-  resolved "https://registry.yarnpkg.com/mocha/-/mocha-3.4.2.tgz#d0ef4d332126dbf18d0d640c9b382dd48be97594"
+mocha@^3.5.0:
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/mocha/-/mocha-3.5.0.tgz#1328567d2717f997030f8006234bce9b8cd72465"
   dependencies:
     browser-stdout "1.3.0"
     commander "2.9.0"
-    debug "2.6.0"
+    debug "2.6.8"
     diff "3.2.0"
     escape-string-regexp "1.0.5"
     glob "7.1.1"
@@ -3644,9 +3638,9 @@ mongoose-aliasfield@^0.3.7:
   version "0.3.7"
   resolved "https://registry.yarnpkg.com/mongoose-aliasfield/-/mongoose-aliasfield-0.3.7.tgz#23b28c95f841abaaa93f394e54ddcaa88f14c6b1"
 
-mongoose@^4.11.4:
-  version "4.11.4"
-  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-4.11.4.tgz#3d74111105ee8b619eb1c1d790e7bfc4e8cba7bb"
+mongoose@^4.11.5:
+  version "4.11.5"
+  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-4.11.5.tgz#59e4a1d84dcd36cc51f3e639b771cb8359f539aa"
   dependencies:
     async "2.1.4"
     bson "~1.0.4"
@@ -5299,8 +5293,8 @@ v8flags@^2.0.10, v8flags@^2.0.2:
     user-home "^1.1.1"
 
 validate-commit-msg@^2.6.1:
-  version "2.13.1"
-  resolved "https://registry.yarnpkg.com/validate-commit-msg/-/validate-commit-msg-2.13.1.tgz#71386ea45349c4970e091296f132dcf67dc50714"
+  version "2.14.0"
+  resolved "https://registry.yarnpkg.com/validate-commit-msg/-/validate-commit-msg-2.14.0.tgz#e5383691012cbb270dcc0bc2a4effebe14890eac"
   dependencies:
     conventional-commit-types "^2.0.0"
     find-parent-dir "^0.3.0"

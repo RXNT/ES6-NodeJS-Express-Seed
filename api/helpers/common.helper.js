@@ -3,7 +3,7 @@ import appConstants from '../app.constants';
 import appLogger from './app-logger';
 import emailHelper from './email';
 
-exports.getCurrentUTCISODateTime = () => {
+const getCurrentUTCISODateTime = () => {
   const options = { hour12: false };
   const localDate = new Date().toLocaleString('en-US', options);
   if (localDate.indexOf(',') >= 0) {
@@ -20,7 +20,7 @@ exports.getCurrentUTCISODateTime = () => {
   }
 };
 
-exports.prepareErrorObject = (err, req) => {
+const prepareErrorObject = (err, req) => {
   const errObject = {};
   if (err.stackTrace !== null && err.stackTrace !== undefined && err.stackTrace !== '') {
     if (req !== null && req !== undefined) {
@@ -75,4 +75,9 @@ exports.prepareErrorObject = (err, req) => {
   }
 
   return response;
+};
+
+export default {
+  getCurrentUTCISODateTime,
+  prepareErrorObject,
 };

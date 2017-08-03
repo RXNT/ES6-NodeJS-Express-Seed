@@ -10,7 +10,7 @@ const getPatientSchema = {
   patientId: Joi.number().required(),
 };
 
-exports.validateGetPatient = (request, callback) => {
+const validateGetPatient = (request, callback) => {
   try {
     validateHelper.validateRequest(request, getPatientSchema, (err, data) => {
       callback(err, data);
@@ -25,4 +25,8 @@ exports.validateGetPatient = (request, callback) => {
       source: `${appConstants.ownerTypes.validators.patientSqlValidator}.validateGetPatient`,
     }, null);
   }
+};
+
+export default {
+  validateGetPatient,
 };

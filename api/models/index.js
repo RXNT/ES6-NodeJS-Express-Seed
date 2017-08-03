@@ -1,2 +1,1 @@
 require('./companies');
-require('./encounters');

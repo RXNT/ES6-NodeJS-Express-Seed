@@ -1,23 +1,15 @@
 //  base service route
-exports.apiServiceRoute = '/seedapiservices';
+const apiServiceRoute = '/seedapiservices';
 
-exports.companymongoController = {
+const companymongoController = {
   ownerType: 'api.controllers.companymongo.controller',
-  routeName: '/utilities',
+  routeName: '/companies',
   routeMethods: {
-    getStatusRoute: '/getAllUploadFilesStatuses',
+    getStatusRoute: '/getAllCompanies',
   },
 };
 
-exports.encountermongoController = {
-  ownerType: 'api.controllers.encountermongo.controller',
-  routeName: '/utilities',
-  routeMethods: {
-    getStatusRoute: '/getAllUploadFilesStatuses',
-  },
-};
-
-exports.patientsqlController = {
+const patientsqlController = {
   ownerType: 'api.controllers.patientsql.controller',
   routeName: '/patients',
   routeMethods: {
@@ -25,12 +17,12 @@ exports.patientsqlController = {
   },
 };
 
-exports.validationStatus = {
+const validationStatus = {
   success: 'Success',
   failed: 'Failed',
 };
 
-exports.messageType = {
+const messageType = {
   error: 'Error',
   information: 'Information',
   alert: 'Alert',
@@ -40,18 +32,17 @@ exports.messageType = {
   clientAccessReset: 'ClientAccessReset',
 };
 
-exports.eventType = {
+const eventType = {
   applicationError: 'ApplicationError',
   applicationInformation: 'ApplicationInformation',
   applicationLogin: 'ApplicationLogin',
 };
 
-exports.mongoCollections = {
+const mongoCollections = {
   companies: 'companies',
-  encounters: 'encounters',
 };
 
-exports.applicationMessages = {
+const applicationMessages = {
   internalServerError: 'Internal Server Error occurred. Please contact RxNT support',
   accessForbidden: 'Access is forbidden',
   resourceNotFound: 'Resource not found',
@@ -59,11 +50,22 @@ exports.applicationMessages = {
   dbConnectivityFailed: 'Unable to connect to database',
 };
 
-exports.ownerTypes = {
+const ownerTypes = {
   validators: {
     validatorHelper: 'api.validators.validate.helper',
     patientSqlValidator: 'api.validators.patientsql.validators',
     companyMongoValidator: 'api.validators.companymongo.validators',
-    encounterMongoValidator: 'api.validators.encountermongo.validators',
   },
+};
+
+module.exports = {
+  apiServiceRoute,
+  companymongoController,
+  patientsqlController,
+  validationStatus,
+  messageType,
+  eventType,
+  mongoCollections,
+  applicationMessages,
+  ownerTypes,
 };

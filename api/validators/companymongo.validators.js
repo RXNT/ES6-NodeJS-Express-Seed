@@ -9,7 +9,7 @@ const getCompaniesSchema = {
   companyId: Joi.number().required(),
 };
 
-exports.validateGetCompanies = (request, callback) => {
+const validateGetCompanies = (request, callback) => {
   try {
     validateHelper.validateRequest(request, getCompaniesSchema, (err, data) => {
       callback(err, data);
@@ -24,4 +24,8 @@ exports.validateGetCompanies = (request, callback) => {
       source: `${appConstants.ownerTypes.validators.companyMongoValidator}.validateGetCompanies`,
     }, null);
   }
+};
+
+export default {
+  validateGetCompanies,
 };

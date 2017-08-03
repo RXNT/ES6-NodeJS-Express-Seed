@@ -11,4 +11,6 @@ mongoose.connection.on('error', () => {
   throw new Error(`${appConstants.applicationMessages.dbConnectivityFailed}: ${config.db}`);
 });
 
-module.exports = mongoConn;
+export default {
+  mongoConn,
+};

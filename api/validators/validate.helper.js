@@ -2,7 +2,7 @@ import Joi from 'joi';
 import _ from 'lodash';
 import appConstants from '../app.constants';
 
-exports.validateRequest = (request, requestSchema, callback) => {
+const validateRequest = (request, requestSchema, callback) => {
   try {
     const err = Joi.validate(request, requestSchema, { abortEarly: false, allowUnknown: true });
     if (err.error !== null && err.error.details !== null && err.error.details.length > 0) {
@@ -22,4 +22,8 @@ exports.validateRequest = (request, requestSchema, callback) => {
       source: `${appConstants.ownerTypes.validators.validatorHelper}.validateRequest`,
     }, null);
   }
+};
+
+export default {
+  validateRequest,
 };

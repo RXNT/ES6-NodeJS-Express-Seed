@@ -1,7 +1,7 @@
 import sql from 'mssql';
 import config from '../../config';
 
-exports.getPatient = (req) => {
+const getPatient = (req) => {
   const getPromise = new Promise((resolve, reject) => {
     new sql.ConnectionPool(config.sqlConnectionString).connect().then((pool) => {
       pool.request()
@@ -20,4 +20,8 @@ exports.getPatient = (req) => {
   });
 
   return getPromise;
+};
+
+export default {
+  getPatient,
 };

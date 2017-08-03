@@ -6,7 +6,7 @@ import config from '../../config';
 const mailTransport = nodemailer.createTransport(smtpTransport(config.smtpSettings));
 
 // export send email
-exports.sendEmail = (toEmail, mailSubject, mailBody) => {
+const sendEmail = (toEmail, mailSubject, mailBody) => {
   const mailOptions = {
     from: config.errorFromEmail,
     to: toEmail,
@@ -17,4 +17,8 @@ exports.sendEmail = (toEmail, mailSubject, mailBody) => {
   mailTransport.sendMail(mailOptions, (error, response) => { // eslint-disable-line
     mailTransport.close();
   });
+};
+
+export default {
+  sendEmail,
 };

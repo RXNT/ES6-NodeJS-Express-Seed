@@ -89,11 +89,15 @@ const shutdown = () => {
   server.close();
 };
 
+const port = config.port;
+
 //  node js application main module
 if (!module.parent) {
   bootServer();
-} else {
-  exports.bootServer = bootServer;
-  exports.shutdown = shutdown;
-  exports.port = config.port;
 }
+
+module.exports = {
+  bootServer,
+  shutdown,
+  port,
+};

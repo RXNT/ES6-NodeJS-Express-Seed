@@ -9,7 +9,7 @@ function customFileFormatter(options) {
      ${(options.meta && Object.keys(options.meta).length ? nextLine + JSON.stringify(options.meta) : '')}`;
 }
 
-const logger = new (winston.Logger)({
+const LOG = new (winston.Logger)({
   transports: [
     new (winston.transports.File)({
       timestamp() {
@@ -23,6 +23,6 @@ const logger = new (winston.Logger)({
   ],
 });
 
-Object.defineProperty(exports, 'LOG', {
-  value: logger,
-});
+export default {
+  LOG,
+};

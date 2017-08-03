@@ -4,7 +4,7 @@ import patientsValidator from '../validators/patientsql.validators';
 import helper from '../helpers/common.helper';
 import appConstants from '../app.constants';
 
-exports.getPatient = (req, res, next) => {  // eslint-disable-line
+const getPatient = (req, res, next) => {  // eslint-disable-line
   patientsValidator.validateGetPatient(req.body, (err, validationMsg) => {
     if (err) {
       httpMessages.sendJson(req, res, helper.prepareErrorObject(err, req));
@@ -35,13 +35,11 @@ exports.getPatient = (req, res, next) => {  // eslint-disable-line
           ownerType: appConstants.patientsqlController.ownerType,
           source: `${appConstants.patientsqlController.ownerType}.getPatient`,
         }, req));
-
-        const data = {
-          ValidationStatus: appConstants.validationStatus.failed,
-          ValidationMessage: [appConstants.applicationMessages.internalServerError],
-        };
-        httpMessages.sendJson(req, res, data);
       });
     }
   });
+};
+
+export default {
+  getPatient,
 };

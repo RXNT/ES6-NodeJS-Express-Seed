@@ -2,7 +2,7 @@ import appLogger from './app-logger';
 import appConstants from '../app.constants';
 
 // http 200
-exports.send200 = (req, resp, data)  =>{ // eslint-disable-line
+const send200 = (req, resp, data)  =>{ // eslint-disable-line
   resp.writeHead(200, {
     'Content-Type': 'application/json',
   });
@@ -10,7 +10,7 @@ exports.send200 = (req, resp, data)  =>{ // eslint-disable-line
 };
 
 // send json response
-exports.sendJson = (req, resp, data) => { // eslint-disable-line
+const sendJson = (req, resp, data) => { // eslint-disable-line
   resp.writeHead(200, {
     'Content-Type': 'application/json',
   });
@@ -19,7 +19,7 @@ exports.sendJson = (req, resp, data) => { // eslint-disable-line
 };
 
 // http 500
-exports.show500 = (req, res, err) => {
+const show500 = (req, res, err) => {
   appLogger.LOG.error(err);
   res.writeHead(500, {
     'Content-Type': 'application/json',
@@ -32,7 +32,7 @@ exports.show500 = (req, res, err) => {
 };
 
 // http 403
-exports.show403 = (req, resp) => {
+const show403 = (req, resp) => {
   resp.writeHead(403, appConstants.applicationMessages.accessForbidden, {
     'Content-Type': 'application/json',
   });
@@ -44,7 +44,7 @@ exports.show403 = (req, resp) => {
 };
 
 // http 404
-exports.show404 = (req, resp) => {
+const show404 = (req, resp) => {
   resp.writeHead(404, appConstants.applicationMessages.resourceNotFound, {
     'Content-Type': 'application/json',
   });
@@ -56,7 +56,7 @@ exports.show404 = (req, resp) => {
 };
 
 // http 405
-exports.show405 = (req, resp) => {
+const show405 = (req, resp) => {
   resp.writeHead(405, appConstants.applicationMessages.methodNotSupported, {
     'Content-Type': 'application/json',
   });
@@ -65,4 +65,13 @@ exports.show405 = (req, resp) => {
     ValidationMessages: [appConstants.applicationMessages.methodNotSupported],
   }));
   resp.end();
+};
+
+export default {
+  send200,
+  sendJson,
+  show500,
+  show403,
+  show404,
+  show405,
 };
