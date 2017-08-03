@@ -70,7 +70,7 @@ We will follow the instructions by adding a `Student` registartion API which wil
 
 1. Add new `student.dal.js` file under `api\dal` folder
 
-  a. Export a method named as `registerStudent`
+   a. Export a method named as `registerStudent`
 
 2. Add new validator file under `api\validators\student.validators.js` to implement request validation using `Joi`
 
