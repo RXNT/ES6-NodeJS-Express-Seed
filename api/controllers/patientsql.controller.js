@@ -21,12 +21,16 @@ const getPatient = (req, res, next) => { // eslint-disable-line no-unused-vars
       });
     } else {
       patientsDal.getPatient(req).then((results) => {
+        let patientInfo = null;
+        if (results.recordsets[0].length > 0) {
+          patientInfo = results.recordsets[0][0];
+        }
         const data = {
           ValidationStatus: appConstants.validationStatus.success,
-          Patient: results.recordsets,
+          Patient: patientInfo,
         };
         httpMessages.sendJson(req, res, data);
-      }, (errInfo) => { // eslint-disable-line
+      }, (errInfo) => {
         httpMessages.sendJson(req, res, helper.prepareErrorObject({
           primaryKey: req.body.patientId,
           message: errInfo.message,
