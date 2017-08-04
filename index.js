@@ -66,6 +66,9 @@ appMiddleware(app);
 // mount all routes on /api path
 app.use(appConstants.apiServiceRoute, routes);
 
+/**
+ * This method starts api service
+ */
 const bootServer = () => {
   if (config.secureCommunication) {
     const ops = {
@@ -84,7 +87,9 @@ const bootServer = () => {
   }
 };
 
-//  close server
+/**
+ * This method stops api server
+ */
 const shutdown = () => {
   server.close();
 };

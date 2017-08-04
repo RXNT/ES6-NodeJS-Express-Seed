@@ -2,6 +2,12 @@ import Joi from 'joi';
 import _ from 'lodash';
 import appConstants from '../app.constants';
 
+/**
+ * Validates services request
+ * @param {object} request - service request
+ * @param {object} requestSchema - request schema
+ * @param {method} callback - call back method
+ */
 const validateRequest = (request, requestSchema, callback) => {
   try {
     const err = Joi.validate(request, requestSchema, { abortEarly: false, allowUnknown: true });

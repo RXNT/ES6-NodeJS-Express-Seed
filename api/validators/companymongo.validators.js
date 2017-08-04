@@ -9,6 +9,11 @@ const getCompaniesSchema = {
   companyId: Joi.number().required(),
 };
 
+/**
+ * Validates get companies request
+ * @param {object} request - service request
+ * @param {method} callback - call back method
+ */
 const validateGetCompanies = (request, callback) => {
   try {
     validateHelper.validateRequest(request, getCompaniesSchema, (err, data) => {

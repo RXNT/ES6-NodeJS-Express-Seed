@@ -5,7 +5,6 @@ import patientsqlRoutes from './patientsql.route';
 
 const router = express.Router(); // eslint-disable-line new-cap
 
-// mount utilities routes at /getSourceMappingColumns
 router.use(appConstants.companymongoController.routeName, companymongoRoutes);
 router.use(appConstants.patientsqlController.routeName, patientsqlRoutes);
 

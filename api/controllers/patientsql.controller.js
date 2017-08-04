@@ -4,7 +4,13 @@ import patientsValidator from '../validators/patientsql.validators';
 import helper from '../helpers/common.helper';
 import appConstants from '../app.constants';
 
-const getPatient = (req, res, next) => {  // eslint-disable-line
+/**
+ * Get patient information
+ * @param {object} req - service request
+ * @param {object} res - service response
+ * @param {method} next - middleware method
+ */
+const getPatient = (req, res, next) => { // eslint-disable-line no-unused-vars
   patientsValidator.validateGetPatient(req.body, (err, validationMsg) => {
     if (err) {
       httpMessages.sendJson(req, res, helper.prepareErrorObject(err, req));
@@ -15,14 +21,9 @@ const getPatient = (req, res, next) => {  // eslint-disable-line
       });
     } else {
       patientsDal.getPatient(req).then((results) => {
-        let patientInfo = null;
-        if (results.recordsets[0].length > 0) {
-          patientInfo = results.recordsets[0][0];
-        }
-
         const data = {
           ValidationStatus: appConstants.validationStatus.success,
-          Patient: patientInfo,
+          Patient: results.recordsets,
         };
         httpMessages.sendJson(req, res, data);
       }, (errInfo) => { // eslint-disable-line

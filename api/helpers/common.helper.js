@@ -3,6 +3,9 @@ import appConstants from '../app.constants';
 import appLogger from './app-logger';
 import emailHelper from './email';
 
+/**
+ * Get current UTC date and time
+ */
 const getCurrentUTCISODateTime = () => {
   const options = { hour12: false };
   const localDate = new Date().toLocaleString('en-US', options);
@@ -20,6 +23,11 @@ const getCurrentUTCISODateTime = () => {
   }
 };
 
+/**
+ * Prepares error object
+ * @param {object} err - Error object
+ * @param {object} req - Service request
+ */
 const prepareErrorObject = (err, req) => {
   const errObject = {};
   if (err.stackTrace !== null && err.stackTrace !== undefined && err.stackTrace !== '') {

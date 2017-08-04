@@ -1,16 +1,26 @@
 import appLogger from './app-logger';
 import appConstants from '../app.constants';
 
-// http 200
-const send200 = (req, resp, data)  =>{ // eslint-disable-line
+/**
+ * Send 200 Response to Client
+ * @param {object} req - service request
+ * @param {object} resp - service response
+ * @param {method} err - call back method
+ */
+const send200 = (req, resp, data) => { // eslint-disable-line no-unused-vars
   resp.writeHead(200, {
     'Content-Type': 'application/json',
   });
   resp.end();
 };
 
-// send json response
-const sendJson = (req, resp, data) => { // eslint-disable-line
+/**
+ * Send 200 Response with data to Client
+ * @param {object} req - service request
+ * @param {object} resp - service response
+ * @param {method} err - call back method
+ */
+const sendJson = (req, resp, data) => { // eslint-disable-line no-unused-vars
   resp.writeHead(200, {
     'Content-Type': 'application/json',
   });
@@ -18,7 +28,12 @@ const sendJson = (req, resp, data) => { // eslint-disable-line
   resp.end();
 };
 
-// http 500
+/**
+ * Send 500 Response to Client
+ * @param {object} req - service request
+ * @param {object} res - service response
+ * @param {method} err - call back method
+ */
 const show500 = (req, res, err) => {
   appLogger.LOG.error(err);
   res.writeHead(500, {
@@ -31,7 +46,11 @@ const show500 = (req, res, err) => {
   res.end();
 };
 
-// http 403
+/**
+ * Send 403 Response to Client
+ * @param {object} req - service request
+ * @param {object} resp - service response
+ */
 const show403 = (req, resp) => {
   resp.writeHead(403, appConstants.applicationMessages.accessForbidden, {
     'Content-Type': 'application/json',
@@ -43,7 +62,11 @@ const show403 = (req, resp) => {
   resp.end();
 };
 
-// http 404
+/**
+ * Send 404 Response to Client
+ * @param {object} req - service request
+ * @param {object} resp - service response
+ */
 const show404 = (req, resp) => {
   resp.writeHead(404, appConstants.applicationMessages.resourceNotFound, {
     'Content-Type': 'application/json',
@@ -55,7 +78,11 @@ const show404 = (req, resp) => {
   resp.end();
 };
 
-// http 405
+/**
+ * Send 405 Response to Client
+ * @param {object} req - service request
+ * @param {object} resp - service response
+ */
 const show405 = (req, resp) => {
   resp.writeHead(405, appConstants.applicationMessages.methodNotSupported, {
     'Content-Type': 'application/json',

@@ -10,6 +10,11 @@ const getPatientSchema = {
   patientId: Joi.number().required(),
 };
 
+/**
+ * Validates get patient request
+ * @param {object} request - service request
+ * @param {method} callback - call back method
+ */
 const validateGetPatient = (request, callback) => {
   try {
     validateHelper.validateRequest(request, getPatientSchema, (err, data) => {

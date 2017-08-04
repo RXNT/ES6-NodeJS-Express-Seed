@@ -5,6 +5,6 @@ import appConstants from '../app.constants';
 const router = express.Router(); // eslint-disable-line new-cap
 
 router.route(appConstants.companymongoController.routeMethods.getStatusRoute)
-  .post(companymongoCtrl.getCompanies);
+  .post(companymongoCtrl.getAllCompanies);
 
 export default router;

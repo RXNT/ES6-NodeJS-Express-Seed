@@ -6,7 +6,13 @@ import models from '../models/index'; // eslint-disable-line
 import helper from '../helpers/common.helper';
 import compnayMongoValidator from '../validators/companymongo.validators';
 
-const getCompanies = (req, res, next) => { // eslint-disable-line
+/**
+ * Get all companies
+ * @param {object} req - service request
+ * @param {object} res - service response
+ * @param {method} next - middleware method
+ */
+const getAllCompanies = (req, res, next) => { // eslint-disable-line no-unused-vars
   compnayMongoValidator.validateGetCompanies(req.body, (err, validationMsg) => {
     if (err) {
       httpMessages.sendJson(req, res, helper.prepareErrorObject(err, req));
@@ -45,5 +51,5 @@ const getCompanies = (req, res, next) => { // eslint-disable-line
 };
 
 export default {
-  getCompanies,
+  getAllCompanies,
 };
