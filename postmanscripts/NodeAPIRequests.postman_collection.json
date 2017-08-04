@@ -1,0 +1,46 @@
+{
+	"id": "f695cab7-6878-eb55-7943-ad88e1ccfd65",
+	"name": "NodeAPIRequests",
+	"description": "Postman Echo is service you can use to test your REST clients and make sample API calls. It provides endpoints for `GET`, `POST`, `PUT`, various auth mechanisms and other utility endpoints.\n\nThe documentation for the endpoints as well as example responses can be found at [https://postman-echo.com](https://postman-echo.com/?source=echo-collection-app-onboarding)",
+	"order": [
+		"336c3c3f-8daf-445b-896e-7dc75c0d6a3a"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 0,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "336c3c3f-8daf-445b-896e-7dc75c0d6a3a",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:9600/seedapiservices/patients/getPatient",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "f695cab7-6878-eb55-7943-ad88e1ccfd65",
+			"data": [],
+			"dataMode": "raw",
+			"name": "GetPatientAPI",
+			"description": "Get Patient API",
+			"descriptionFormat": "html",
+			"time": 1501842441985,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\"patientId\": 1,\n\"companyId\": 2\n}"
+		}
+	]
+}
