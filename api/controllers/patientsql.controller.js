@@ -10,7 +10,7 @@ import appConstants from '../app.constants';
  * @param {object} res - service response
  * @param {method} next - middleware method
  */
-const getPatient = (req, res, next) => { // eslint-disable-line no-unused-vars
+const getPatient = (req, res) => {
   patientsValidator.validateGetPatient(req.body, (err, validationMsg) => {
     if (err) {
       httpMessages.sendJson(req, res, helper.prepareErrorObject(err, req));
@@ -22,8 +22,9 @@ const getPatient = (req, res, next) => { // eslint-disable-line no-unused-vars
     } else {
       patientsDal.getPatient(req).then((results) => {
         let patientInfo = null;
+        const PATIENT_INFO_DATATABLE_INDEX = 0;
         if (results.recordsets[0].length > 0) {
-          patientInfo = results.recordsets[0][0];
+          patientInfo = results.recordsets[PATIENT_INFO_DATATABLE_INDEX][0];
         }
         const data = {
           ValidationStatus: appConstants.validationStatus.success,

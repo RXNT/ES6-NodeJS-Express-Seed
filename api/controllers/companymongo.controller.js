@@ -12,7 +12,7 @@ import compnayMongoValidator from '../validators/companymongo.validators';
  * @param {object} res - service response
  * @param {method} next - middleware method
  */
-const getAllCompanies = (req, res, next) => { // eslint-disable-line no-unused-vars
+const getAllCompanies = (req, res) => {
   compnayMongoValidator.validateGetCompanies(req.body, (err, validationMsg) => {
     if (err) {
       httpMessages.sendJson(req, res, helper.prepareErrorObject(err, req));
