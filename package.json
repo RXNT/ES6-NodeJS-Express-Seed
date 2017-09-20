@@ -6,8 +6,8 @@
   "main": "index.js",
   "engines": {
     "node": ">=6.11.3",
-    "npm": ">=3.x.x",
-    "yarn": ">=0.17.9"
+    "npm": ">=4.x.x",
+    "yarn": ">=1.0.0"
   },
   "license": "UNLICENSED",
   "private": true,
