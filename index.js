@@ -1,13 +1,13 @@
 
-import https from 'https';
-import http from 'http';
-import mongoose from 'mongoose';
+let https = require('https');
+let http = require('http');
+let mongoose = require('mongoose');
 
-import sslConfig from './api/helpers/ssl-config';
-import config from './config';
-import mongoConn from './api/helpers/mongo-db-helpers';  // eslint-disable-line
+let sslConfig = require('./api/helpers/ssl-config');
+let config = require('./config');
+let mongoConn = require('./api/helpers/mongo-db-helpers');  // eslint-disable-line
 
-import express from './api/express';
+let express = require('./api/express');
 // make bluebird default Promise
 Promise = require('bluebird'); // eslint-disable-line no-global-assign
 

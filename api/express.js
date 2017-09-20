@@ -1,17 +1,17 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import cookieParser from 'cookie-parser';
-import compress from 'compression';
-import methodOverride from 'method-override';
-import cors from 'cors';
-import helmet from 'helmet';
-import expressWinston from 'express-winston';
+let express = require('express');
+let bodyParser = require('body-parser');
+let cookieParser = require('cookie-parser');
+let compress = require('compression');
+let methodOverride = require('method-override');
+let cors = require('cors');
+let helmet = require('helmet');
+let expressWinston = require('express-winston');
 
-import config from '../config';
-import routes from './routes/index.route';
-import appLogger from './helpers/app-logger';
-import appConstants from './app.constants';
-import appMiddleware from './middleware/index.middleware';
+let config = require('../config');
+let routes = require('./routes/index.route');
+let appLogger = require('./helpers/app-logger');
+let appConstants = require('./app.constants');
+let appMiddleware = require('./middleware/index.middleware');
 
 const app = express();
 
@@ -55,6 +55,6 @@ appMiddleware(app);
 // mount all routes on /api path
 app.use(appConstants.apiServiceRoute, routes);
 
-export default {
+module.exports = {
   app,
 };

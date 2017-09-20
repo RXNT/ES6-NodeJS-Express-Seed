@@ -1,5 +1,5 @@
-import sql from 'mssql';
-import config from '../../config';
+let sql = require('mssql');
+let config = require('../../config');
 
 /**
  * Get patient information
@@ -26,6 +26,6 @@ const getPatient = (req) => {
   return getPromise;
 };
 
-export default {
+module.exports = {
   getPatient,
 };

@@ -1,10 +1,10 @@
-import mongoose from 'mongoose';
-import async from 'async';
-import httpMessages from '../helpers/http-messages';
-import appConstants from '../app.constants';
-import models from '../models/index'; // eslint-disable-line
-import helper from '../helpers/common.helper';
-import compnayMongoValidator from '../validators/companymongo.validators';
+let mongoose = require('mongoose');
+let async = require('async');
+let httpMessages = require('../helpers/http-messages');
+let appConstants = require('../app.constants');
+let models = require('../models/index'); // eslint-disable-line
+let helper = require('../helpers/common.helper');
+let compnayMongoValidator = require('../validators/companymongo.validators');
 
 /**
  * Get all companies
@@ -50,6 +50,6 @@ const getAllCompanies = (req, res) => {
   });
 };
 
-export default {
+module.exports = {
   getAllCompanies,
 };

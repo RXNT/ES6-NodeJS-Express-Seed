@@ -1,5 +1,5 @@
-import appLogger from './app-logger';
-import appConstants from '../app.constants';
+let appLogger = require('./app-logger');
+let appConstants = require('../app.constants');
 
 /**
  * Send 200 Response to Client
@@ -94,7 +94,7 @@ const show405 = (req, resp) => {
   resp.end();
 };
 
-export default {
+module.exports = {
   send200,
   sendJson,
   show500,

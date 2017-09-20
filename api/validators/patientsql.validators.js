@@ -1,7 +1,7 @@
-import BaseJoi from 'joi';
-import Extension from 'joi-date-extensions';
-import validateHelper from './validate.helper';
-import appConstants from '../app.constants';
+let BaseJoi = require('joi');
+let Extension = require('joi-date-extensions');
+let validateHelper = require('./validate.helper');
+let appConstants = require('../app.constants');
 
 const Joi = BaseJoi.extend(Extension);
 
@@ -32,6 +32,6 @@ const validateGetPatient = (request, callback) => {
   }
 };
 
-export default {
+module.exports = {
   validateGetPatient,
 };

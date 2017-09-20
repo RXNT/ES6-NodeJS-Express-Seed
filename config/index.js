@@ -1,4 +1,4 @@
-import path from 'path';
+let path = require('path');
 
 const env = process.env.DeploymentEnv || 'development';
 
@@ -8,4 +8,4 @@ const defaults = {
   root: path.join(__dirname, '/..'),
 };
 
-export default Object.assign(defaults, config);
+module.exports = Object.assign(defaults, config);

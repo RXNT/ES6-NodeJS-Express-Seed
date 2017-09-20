@@ -1,6 +1,6 @@
-import winston from 'winston';
-import config from '../../config';
-import helper from './common.helper';
+let winston = require('winston');
+let config = require('../../config');
+let helper = require('./common.helper');
 
 /**
  * Prepares custom file formatter
@@ -26,6 +26,6 @@ const LOG = new (winston.Logger)({
   ],
 });
 
-export default {
+module.exports = {
   LOG,
 };

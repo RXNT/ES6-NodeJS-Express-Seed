@@ -1,8 +1,8 @@
-import gulp from 'gulp';
-import gulpLoadPlugins from 'gulp-load-plugins';
-import path from 'path';
-import del from 'del';
-import runSequence from 'run-sequence';
+let gulp = require('gulp');
+let gulpLoadPlugins = require('gulp-load-plugins');
+let path = require('path');
+let del = require('del');
+let runSequence = require('run-sequence');
 
 const plugins = gulpLoadPlugins();
 const buildPath = './dist/Srvc';

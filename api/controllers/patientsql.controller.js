@@ -1,8 +1,8 @@
-import httpMessages from '../helpers/http-messages';
-import patientsDal from '../dal/patients.dal';
-import patientsValidator from '../validators/patientsql.validators';
-import helper from '../helpers/common.helper';
-import appConstants from '../app.constants';
+let httpMessages = require('../helpers/http-messages');
+let patientsDal = require('../dal/patients.dal');
+let patientsValidator = require('../validators/patientsql.validators');
+let helper = require('../helpers/common.helper');
+let appConstants = require('../app.constants');
 
 /**
  * Get patient information
@@ -46,6 +46,6 @@ const getPatient = (req, res) => {
   });
 };
 
-export default {
+module.exports = {
   getPatient,
 };

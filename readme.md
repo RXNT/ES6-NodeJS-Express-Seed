@@ -48,11 +48,11 @@ We will follow the instructions by adding a `Student` registartion API which wil
 
 6. Create new route file under `api\routes\student.route.js`. Attach route path(defined in `step-5`) and controller method(defined in `step-4`) as below
 
-    `import express from 'express';`
+    `let express = require('express');`
 
-    `import studentCtrl from '../controllers/student.controller';`
+    `let studentCtrl = require('../controllers/student.controller');`
 
-    `import appConstants from '../app.constants';`
+    `let appConstants = require('../app.constants');`
 
     `const router = express.Router();`
 
@@ -60,7 +60,7 @@ We will follow the instructions by adding a `Student` registartion API which wil
 
 7.  Import route file(defined in `step-6`) in `api\routes\index.route.js` file and attach route
 
-    `import studentRoutes from './student.route';`
+    `let studentRoutes = require('./student.route');`
 
     `router.use(appConstants.studentController.routeName, studentRoutes);`
 
@@ -95,11 +95,11 @@ We will follow the instructions by adding a `Student` registartion API which wil
 
 5. Create new route file under `api\routes\student.route.js`. Attach route path(defined in `step-5`) and controller method(defined in `step-4`) as below
 
-    `import express from 'express';`
+    `let express = require('express');`
 
-    `import studentCtrl from '../controllers/student.controller';`
+    `let studentCtrl = require('../controllers/student.controller');`
 
-    `import appConstants from '../app.constants';`
+    `let appConstants = require('../app.constants');`
 
     `const router = express.Router();`
 
@@ -107,7 +107,7 @@ We will follow the instructions by adding a `Student` registartion API which wil
 
 6.  Import route file(defined in `step-6`) in `api\routes\index.route.js` file and attach route
 
-    `import studentRoutes from './student.route';`
+    `let studentRoutes = require('./student.route');`
 
     `router.use(appConstants.studentController.routeName, studentRoutes);`
 

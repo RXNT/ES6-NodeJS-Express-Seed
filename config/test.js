@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   application: 'ES6-NODEJS-EXPRESS-SEED-Test',
   env: 'test',
   host: '127.0.0.1',

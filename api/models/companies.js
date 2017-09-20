@@ -1,5 +1,5 @@
-import mongoose from 'mongoose';
-import appConstants from '../app.constants';
+let mongoose = require('mongoose');
+let appConstants = require('../app.constants');
 
 const fieldsAliasPlugin = require('mongoose-aliasfield');
 

@@ -1,6 +1,6 @@
-import Joi from 'joi';
-import _ from 'lodash';
-import appConstants from '../app.constants';
+let Joi = require('joi');
+let _ = require('lodash');
+let appConstants = require('../app.constants');
 
 /**
  * Validates services request
@@ -30,6 +30,6 @@ const validateRequest = (request, requestSchema, callback) => {
   }
 };
 
-export default {
+module.exports = {
   validateRequest,
 };

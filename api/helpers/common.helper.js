@@ -1,7 +1,7 @@
-import config from '../../config';
-import appConstants from '../app.constants';
-import appLogger from './app-logger';
-import emailHelper from './email';
+let config = require('../../config');
+let appConstants = require('../app.constants');
+let appLogger = require('./app-logger');
+let emailHelper = require('./email');
 
 /**
  * Get current UTC date and time
@@ -85,7 +85,7 @@ const prepareErrorObject = (err, req) => {
   return response;
 };
 
-export default {
+module.exports = {
   getCurrentUTCISODateTime,
   prepareErrorObject,
 };
