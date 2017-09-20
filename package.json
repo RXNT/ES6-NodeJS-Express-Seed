@@ -4,7 +4,6 @@
   "description": "RxNT Seed APIs",
   "author": "RxNTTeam",
   "main": "index.js",
-  "private": false,
   "engines": {
     "node": ">=6.11.3",
     "npm": ">=3.x.x",
