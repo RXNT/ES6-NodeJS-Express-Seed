@@ -5,10 +5,11 @@
     "plugin:import/errors",
     "plugin:import/warnings"
   ],
-  "plugins": [   
-    "require-jsdoc"   
+  "plugins": [
+    "require-jsdoc"
   ],
-  "rules": {   
+  "rules": {
+    "no-console": ["error", { allow: ["warn", "error", "log"] }],
     "require-jsdoc": ["error", {
         "require": {
             "FunctionDeclaration": true,
