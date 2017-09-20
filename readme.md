@@ -17,6 +17,10 @@
   yarn start
   ```
 
+- NOTE: Due to incompatibilities with babel and node, and the maturity of Node's ES6 support, this project does not use babel.
+
+- Reference node.green for EcmaScript features that you're allowed to use. http://node.green/ . This project is designed to work with node 6.11.3 or higher. Node 6.11.3 supports 99% of ES6 syntax - everything except ES6 modules (import & export) will be OK, please use standard Node commonJS modules instead. If you choose a newer version, reference node.green to verify which features are allowed. (Node is planning to release support for ES6 modules in winter 2017 - reference node.green to confirm before using this feature.)
+
 # Create new Student API using MongoDB
 
 We will follow the instructions by adding a `Student` registartion API which will connect to mongodb
