@@ -1,5 +1,5 @@
-let sql = require('mssql');
-let config = require('../../config');
+const sql = require('mssql');
+const config = require('../../config');
 
 /**
  * Get patient information

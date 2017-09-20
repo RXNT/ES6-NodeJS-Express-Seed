@@ -1,7 +1,7 @@
-let express = require('express');
-let appConstants = require('../app.constants');
-let companymongoRoutes = require('./companymongo.route');
-let patientsqlRoutes = require('./patientsql.route');
+const express = require('express');
+const appConstants = require('../app.constants');
+const companymongoRoutes = require('./companymongo.route');
+const patientsqlRoutes = require('./patientsql.route');
 
 const router = express.Router(); // eslint-disable-line new-cap
 

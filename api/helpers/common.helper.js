@@ -1,7 +1,7 @@
-let config = require('../../config');
-let appConstants = require('../app.constants');
-let appLogger = require('./app-logger');
-let emailHelper = require('./email');
+const config = require('../../config');
+const appConstants = require('../app.constants');
+const appLogger = require('./app-logger');
+const emailHelper = require('./email');
 
 /**
  * Get current UTC date and time

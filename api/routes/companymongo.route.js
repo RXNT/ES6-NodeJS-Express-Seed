@@ -1,6 +1,6 @@
-let express = require('express');
-let companymongoCtrl = require('../controllers/companymongo.controller');
-let appConstants = require('../app.constants');
+const express = require('express');
+const companymongoCtrl = require('../controllers/companymongo.controller');
+const appConstants = require('../app.constants');
 
 const router = express.Router(); // eslint-disable-line new-cap
 

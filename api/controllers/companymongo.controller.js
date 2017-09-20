@@ -1,10 +1,10 @@
-let mongoose = require('mongoose');
-let async = require('async');
-let httpMessages = require('../helpers/http-messages');
-let appConstants = require('../app.constants');
+const mongoose = require('mongoose');
+const async = require('async');
+const httpMessages = require('../helpers/http-messages');
+const appConstants = require('../app.constants');
 let models = require('../models/index'); // eslint-disable-line
-let helper = require('../helpers/common.helper');
-let compnayMongoValidator = require('../validators/companymongo.validators');
+const helper = require('../helpers/common.helper');
+const compnayMongoValidator = require('../validators/companymongo.validators');
 
 /**
  * Get all companies
@@ -36,7 +36,8 @@ const getAllCompanies = (req, res) => {
           }, req));
         } else {
           async.map(companies, (fileType, callback) => {
-            callback(null, fileType.toAliasedFieldsObject());
+            //NOTE: the returned object now has both the actual property AND the aliased property.
+            callback(null, fileType.toObject({ virtuals: true }));
           }, (errInfo, results) => {
             const data = {
               ValidationStatus: appConstants.validationStatus.success,

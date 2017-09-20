@@ -1,6 +1,6 @@
-let winston = require('winston');
-let config = require('../../config');
-let helper = require('./common.helper');
+const winston = require('winston');
+const config = require('../../config');
+const helper = require('./common.helper');
 
 /**
  * Prepares custom file formatter

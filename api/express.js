@@ -1,17 +1,17 @@
-let express = require('express');
-let bodyParser = require('body-parser');
-let cookieParser = require('cookie-parser');
-let compress = require('compression');
-let methodOverride = require('method-override');
-let cors = require('cors');
-let helmet = require('helmet');
-let expressWinston = require('express-winston');
+const express = require('express');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const compress = require('compression');
+const methodOverride = require('method-override');
+const cors = require('cors');
+const helmet = require('helmet');
+const expressWinston = require('express-winston');
 
-let config = require('../config');
-let routes = require('./routes/index.route');
-let appLogger = require('./helpers/app-logger');
-let appConstants = require('./app.constants');
-let appMiddleware = require('./middleware/index.middleware');
+const config = require('../config');
+const routes = require('./routes/index.route');
+const appLogger = require('./helpers/app-logger');
+const appConstants = require('./app.constants');
+const appMiddleware = require('./middleware/index.middleware');
 
 const app = express();
 

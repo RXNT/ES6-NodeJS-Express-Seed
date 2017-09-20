@@ -1,13 +1,13 @@
 
-let https = require('https');
-let http = require('http');
-let mongoose = require('mongoose');
+const https = require('https');
+const http = require('http');
 
-let sslConfig = require('./api/helpers/ssl-config');
-let config = require('./config');
+const sslConfig = require('./api/helpers/ssl-config');
+const config = require('./config');
 let mongoConn = require('./api/helpers/mongo-db-helpers');  // eslint-disable-line
 
-let express = require('./api/express');
+const express = require('./api/express');
+
 let server;
 
 /**

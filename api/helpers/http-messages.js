@@ -1,5 +1,5 @@
-let appLogger = require('./app-logger');
-let appConstants = require('../app.constants');
+const appLogger = require('./app-logger');
+const appConstants = require('../app.constants');
 
 /**
  * Send 200 Response to Client

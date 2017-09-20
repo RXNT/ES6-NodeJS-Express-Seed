@@ -1,4 +1,4 @@
-let path = require('path');
+const path = require('path');
 
 const env = process.env.DeploymentEnv || 'development';
 

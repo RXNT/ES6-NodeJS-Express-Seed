@@ -1,7 +1,5 @@
-let mongoose = require('mongoose');
-let appConstants = require('../app.constants');
-
-const fieldsAliasPlugin = require('mongoose-aliasfield');
+const mongoose = require('mongoose');
+const appConstants = require('../app.constants');
 
 const companiesSchema = new mongoose.Schema({
   name: { type: String, alias: 'Name' },
@@ -10,5 +8,4 @@ const companiesSchema = new mongoose.Schema({
   active: { type: Boolean, alias: 'Active' },
 });
 
-companiesSchema.plugin(fieldsAliasPlugin);
 mongoose.model(appConstants.mongoCollections.companies, companiesSchema);

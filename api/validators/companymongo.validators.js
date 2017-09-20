@@ -1,7 +1,7 @@
-let BaseJoi = require('joi');
-let Extension = require('joi-date-extensions');
-let validateHelper = require('./validate.helper');
-let appConstants = require('../app.constants');
+const BaseJoi = require('joi');
+const Extension = require('joi-date-extensions');
+const validateHelper = require('./validate.helper');
+const appConstants = require('../app.constants');
 
 const Joi = BaseJoi.extend(Extension);
 

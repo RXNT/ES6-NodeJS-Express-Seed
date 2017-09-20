@@ -1,6 +1,6 @@
-let express = require('express');
-let patientsqlCtrl = require('../controllers/patientsql.controller');
-let appConstants = require('../app.constants');
+const express = require('express');
+const patientsqlCtrl = require('../controllers/patientsql.controller');
+const appConstants = require('../app.constants');
 
 const router = express.Router(); // eslint-disable-line new-cap
 

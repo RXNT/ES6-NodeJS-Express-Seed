@@ -1,6 +1,6 @@
-let Joi = require('joi');
-let _ = require('lodash');
-let appConstants = require('../app.constants');
+const Joi = require('joi');
+const _ = require('lodash');
+const appConstants = require('../app.constants');
 
 /**
  * Validates services request

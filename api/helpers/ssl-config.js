@@ -1,4 +1,4 @@
-let fs = require('fs');
+const fs = require('fs');
 
 const privateKey = fs.readFileSync('./sslcertificate/privatekey.pem').toString(); // private key
 const certificate = fs.readFileSync('./sslcertificate/certificate.pem').toString(); // certificate

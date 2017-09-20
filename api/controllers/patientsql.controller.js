@@ -1,8 +1,8 @@
-let httpMessages = require('../helpers/http-messages');
-let patientsDal = require('../dal/patients.dal');
-let patientsValidator = require('../validators/patientsql.validators');
-let helper = require('../helpers/common.helper');
-let appConstants = require('../app.constants');
+const httpMessages = require('../helpers/http-messages');
+const patientsDal = require('../dal/patients.dal');
+const patientsValidator = require('../validators/patientsql.validators');
+const helper = require('../helpers/common.helper');
+const appConstants = require('../app.constants');
 
 /**
  * Get patient information
