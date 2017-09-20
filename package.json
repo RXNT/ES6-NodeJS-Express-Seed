@@ -10,9 +10,11 @@
     "npm": ">=3.x.x",
     "yarn": ">=0.17.9"
   },
-  "license": "MIT",
+  "license": "UNLICENSED",
+  "private": true,
   "scripts": {
-    "prestart": "yarn install && yarn lint",
+    "precommit": "yarn lint && yarn test",
+    "prestart": "yarn && yarn lint",
     "start": "nodemon ./index.js",
     "prestartdevqa": "yarn install --production",
     "startdevqa": "pm2 start execute/process.devQA.json",
@@ -25,10 +27,9 @@
     "stopprodrelease": "pm2 stop execute/process.prodRelease.json",
     "getoutdatedpackages": "yarn outdated",
     "lint": "esw *.js api config --color",
+    "lint:fix": "esw *.js api config --color --fix",
     "lint:watch": "npm run lint -- --watch",
-    "test": "NODE_ENV=test nyc --reporter=html --reporter=text mocha ./test/",
-    "test:check-coverage": "",
-    "report-coverage": ""
+    "test": "NODE_ENV=test nyc --reporter=html --reporter=text mocha ./test/"
   },
   "dependencies": {
     "async": "^2.1.2",
@@ -62,6 +63,7 @@
     "eslint-plugin-import": "2.7.0",
     "eslint-plugin-require-jsdoc": "1.0.4",
     "eslint-watch": "^3.1.2",
+    "husky": "0.14.3",
     "isparta": "4.0.0",
     "mocha": "^3.5.3",
     "nodemon": "1.11.0",

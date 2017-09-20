@@ -36,7 +36,7 @@ const getAllCompanies = (req, res) => {
           }, req));
         } else {
           async.map(companies, (fileType, callback) => {
-            //NOTE: the returned object now has both the actual property AND the aliased property.
+            // NOTE: the returned object now has both the actual property AND the aliased property.
             callback(null, fileType.toObject({ virtuals: true }));
           }, (errInfo, results) => {
             const data = {
