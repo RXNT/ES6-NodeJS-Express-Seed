@@ -23,11 +23,11 @@
 
 # Create new Student API using MongoDB
 
-We will follow the instructions by adding a `Student` registartion API which will connect to mongodb
+We will follow the instructions by adding a `Student` registration API which will connect to mongodb
 
 1. Create mongodb collection model under `api\models` folder
 
-2. Import model created in `step(1)` in `api\models\index`
+2. load model created in `step(1)` in `api\models\index` (use commonJS, e.g. let ex = require('ex.js'))
 
 3. Add new validator file under `api\validators\student.validators.js` to implement request validation using `Joi`
 
@@ -43,7 +43,7 @@ We will follow the instructions by adding a `Student` registartion API which wil
 
 5. Define API route path for new method under `api\app.constants.js` as below
 
-   `exports.studentController = {
+   `module.exports.studentController = {
       routeName: '/students',
       routeMethods: {
         registerStudentRoute: '/registerStudent',
@@ -62,7 +62,7 @@ We will follow the instructions by adding a `Student` registartion API which wil
 
     `router.route(appConstants.studentController.routeMethods.registerStudentRoute).post(studentCtrl.registerStudent);`
 
-7.  Import route file(defined in `step-6`) in `api\routes\index.route.js` file and attach route
+7.  load route file(defined in `step-6`) in `api\routes\index.route.js` file and attach route
 
     `let studentRoutes = require('./student.route');`
 
@@ -70,7 +70,7 @@ We will follow the instructions by adding a `Student` registartion API which wil
 
 # Create new Student API using SqlServer
 
-We will follow the instructions by adding a `Student` registartion API which will connect to mongodb
+We will follow the instructions by adding a `Student` registration API which will connect to mongodb
 
 1. Add new `student.dal.js` file under `api\dal` folder
 
@@ -82,7 +82,7 @@ We will follow the instructions by adding a `Student` registartion API which wil
 
 3. Add new controller under `api\controllers` folder with file name as `student.controller.js`
 
-   a. Export a method named as `registerStudent`
+   a. Export a method named as `registerStudent` using commonJS (module.exports.X = Y)
 
    b. Before processing request, validate request object by importing validator method created in `step (3)`
 
@@ -90,7 +90,7 @@ We will follow the instructions by adding a `Student` registartion API which wil
 
 4. Define API route path for new method under `api\app.constants.js` as below
 
-   `exports.studentController = {
+   `module.exports.studentController = {
       routeName: '/students',
       routeMethods: {
         registerStudentRoute: '/registerStudent',
@@ -109,36 +109,32 @@ We will follow the instructions by adding a `Student` registartion API which wil
 
     `router.route(appConstants.studentController.routeMethods.registerStudentRoute).post(studentCtrl.registerStudent);`
 
-6.  Import route file(defined in `step-6`) in `api\routes\index.route.js` file and attach route
+6.  load route file(defined in `step-6`) in `api\routes\index.route.js` file and attach route
 
     `let studentRoutes = require('./student.route');`
 
     `router.use(appConstants.studentController.routeName, studentRoutes);`
 
 # All Commands
-
+- Test - runs mocha tests with name test/XXX.spec.js
+  ```bash
+  yarn test
+  ```
 - Start service in development environment
   ```bash
   yarn run start
   ```
-- Transpile service from ES6 to ES5 for devQA Or prodQA or prodRelease environments
-  ```bash
-  yarn run build
-  ```
 - Start/Stop service in `devQA` environment.
-  Naviagate to `dist` folder created in step (2) and execute below commands to start/stop service
   ```bash
   yarn run startdevqa
   yarn run stopdevqa
   ```
 - Start/Stop service in `prodQA` environment
-  Naviagate to `dist` folder created in step (2) and execute below commands to start/stop service
   ```bash
   yarn run startprodqa
   yarn run stopprodqa
   ```
 - Start/Stop service in `prodRelease` environment
-  Naviagate to `dist` folder created in step (2) and execute below commands to start/stop service
   ```bash
   yarn run startprodrelease
   yarn run stopprodrelease

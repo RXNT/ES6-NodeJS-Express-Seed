@@ -14,7 +14,7 @@
   "scripts": {
     "precommit": "yarn lint && yarn test",
     "prestart": "yarn && yarn lint",
-    "start": "nodemon ./index.js",
+    "start": "NODE_ENV=development nodemon ./index.js",
     "prestartdevqa": "yarn install --production",
     "startdevqa": "pm2 start execute/process.devQA.json",
     "prestartprodqa": "yarn install --production",
