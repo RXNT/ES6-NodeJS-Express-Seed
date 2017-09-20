@@ -5,7 +5,7 @@
 - [Create new Student API using SqlServer](#create-new-student-api-using-sqlserver)
 - [All Commands](#all-commands)
 - [Configuration](#configuration)
-- [Notes on older ES6 seed (pre October 2017)](#migrating)
+- [Migrating](#migrating)
 
 <!-- /TOC -->
 
@@ -154,7 +154,8 @@ We will follow the instructions by adding a `Student` registration API which wil
   - mongoConnectionString - MongoDB connection string
   - sqlConnectionString - SQL Server connection string
 
-# Notes on older ES6 seed (pre October 2017)
+# Migrating
+## Notes on older ES6 seed (pre October 2017)
 
 - The previous version of this repository relied on transpiling of babel code. In order to start production scripts with the previous version, it was necessary to navigate to the transpiled code folder (dist) then execute start commands. Debugging these scripts would have revealed transpiled code... To run this version, transpiling is not used (babel is not used). Simply run the start scripts from the project home directory. Errors and debugging will point to raw source code.
 
@@ -166,4 +167,4 @@ We will follow the instructions by adding a `Student` registration API which wil
 
 - Bluebird and promise polyfills are removed. Node 6.11.3 and greater support ES6's built-in Promise.
 
-- Mocha testing is supported, and istanbul runs automatically when testing. 
+- Mocha testing is supported, and istanbul runs automatically when testing.
