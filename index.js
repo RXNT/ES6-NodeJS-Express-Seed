@@ -8,13 +8,7 @@ let config = require('./config');
 let mongoConn = require('./api/helpers/mongo-db-helpers');  // eslint-disable-line
 
 let express = require('./api/express');
-// make bluebird default Promise
-Promise = require('bluebird'); // eslint-disable-line no-global-assign
-
 let server;
-
-// plugin bluebird promise in mongoose
-mongoose.Promise = Promise;
 
 /**
  * This method starts api service
