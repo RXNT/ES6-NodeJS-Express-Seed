@@ -95,4 +95,8 @@ const getAllCompanies = (req, res) => {
 
 module.exports = {
   getAllCompanies,
+  testExports: {
+    extractAllCompanyQueryObj,
+    queryAllCompanies,
+  },
 };
