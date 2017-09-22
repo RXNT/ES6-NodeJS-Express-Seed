@@ -1,11 +1,7 @@
 const mongoose = require('mongoose');
 const appConstants = require('../app.constants');
+const companyModel = require('./modelObjects/companyModel');
 
-const companiesSchema = new mongoose.Schema({
-  name: { type: String, alias: 'Name' },
-  createdDate: { type: Date, alias: 'CreatedDate' },
-  createdBy: { type: Number, alias: 'CreatedBy' },
-  active: { type: Boolean, alias: 'Active' },
-});
+const companiesSchema = new mongoose.Schema(companyModel);
 
 mongoose.model(appConstants.mongoCollections.companies, companiesSchema);

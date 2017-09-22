@@ -70,15 +70,16 @@ const prepareErrorObject = (err, req) => {
   }
 
   let response = {};
-  if (err.stackTrace !== null && err.stackTrace !== undefined && err.stackTrace !== '') {
-    response = {
-      ValidationStatus: appConstants.validationStatus.failed,
-      ValidationMessages: [appConstants.applicationMessages.internalServerError],
-    };
-  } else if (err.actualErr) {
+
+  if (err.eventType === appConstants.eventType.applicationError) {
     response = {
       ValidationStatus: appConstants.validationStatus.failed,
       ValidationMessages: [err.message],
+    };
+  } else {
+    response = {
+      ValidationStatus: appConstants.validationStatus.failed,
+      ValidationMessages: [appConstants.applicationMessages.internalServerError],
     };
   }
 

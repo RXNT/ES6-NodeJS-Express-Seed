@@ -29,6 +29,22 @@ const sendJson = (req, resp, data) => { // eslint-disable-line no-unused-vars
 };
 
 /**
+ * Send Response with HTTP_ERR_CODE, useful for error cases.
+ * @param  {[type]} req           [description]
+ * @param  {[type]} resp          [description]
+ * @param  {[type]} data          [description]
+ * @param  {[type]} HTTP_ERR_CODE [description]
+ * @return {[type]}               [description]
+ */
+module.exports.sendJsonErr = (req, resp, data, HTTP_ERR_CODE) => { // eslint-disable-line
+  resp.writeHead(HTTP_ERR_CODE, {
+    'Content-Type': 'application/json',
+  });
+  if (data) resp.write(JSON.stringify(data));
+  resp.end();
+};
+
+/**
  * Send 500 Response to Client
  * @param {object} req - service request
  * @param {object} res - service response
