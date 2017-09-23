@@ -1,6 +1,6 @@
-import mongoose from 'mongoose';
-import config from '../../config';
-import appConstants from '../app.constants';
+const mongoose = require('mongoose');
+const config = require('../../config');
+const appConstants = require('../app.constants');
 
 mongoose.connect(`mongodb://${config.mongoConnectionString.hostName}:${config.mongoConnectionString.port}/${config.mongoConnectionString.database}`,
   { useMongoClient: true });
@@ -11,6 +11,6 @@ mongoose.connection.on('error', () => {
   throw new Error(`${appConstants.applicationMessages.dbConnectivityFailed}: ${config.db}`);
 });
 
-export default {
+module.exports = {
   mongoConn,
 };

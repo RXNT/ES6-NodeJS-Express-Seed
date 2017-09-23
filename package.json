@@ -4,16 +4,17 @@
   "description": "RxNT Seed APIs",
   "author": "RxNTTeam",
   "main": "index.js",
-  "private": false,
   "engines": {
-    "node": ">=6.x.x",
-    "npm": ">=3.x.x",
-    "yarn": ">=0.17.9"
+    "node": ">=6.11.3",
+    "npm": ">=4.x.x",
+    "yarn": ">=1.0.0"
   },
-  "license": "MIT",
+  "license": "UNLICENSED",
+  "private": true,
   "scripts": {
-    "prestart": "yarn install && yarn lint",
-    "start": "nodemon ./index.js --exec babel-node",
+    "precommit": "yarn lint && yarn test",
+    "prestart": "yarn && yarn lint",
+    "start": "NODE_ENV=development nodemon ./index.js",
     "prestartdevqa": "yarn install --production",
     "startdevqa": "pm2 start execute/process.devQA.json",
     "prestartprodqa": "yarn install --production",
@@ -24,21 +25,17 @@
     "stopprodqa": "pm2 stop execute/process.prodQA.json",
     "stopprodrelease": "pm2 stop execute/process.prodRelease.json",
     "getoutdatedpackages": "yarn outdated",
-    "prebuild": "yarn install && yarn lint",
-    "build": "gulp",
     "lint": "esw *.js api config --color",
+    "lint:fix": "esw *.js api config --color --fix",
     "lint:watch": "npm run lint -- --watch",
-    "test": "DeploymentEnv=test babel-node node_modules/.bin/isparta cover _mocha -- --ui bdd --reporter spec --colors --compilers js:babel-core/register ./server/**/*.test.js",
-    "test:watch": "npm run test -- --watch",
-    "test:check-coverage": "npm run test && istanbul check-coverage",
-    "report-coverage": "coveralls < ./coverage/lcov.info"
+    "test": "NODE_ENV=test nyc --reporter=html --reporter=text mocha ./test/"
   },
   "dependencies": {
     "async": "^2.1.2",
-    "bluebird": "^3.4.6",
     "body-parser": "^1.15.2",
     "compression": "1.7.0",
     "concat-stream": "^1.5.2",
+    "config": "1.26.2",
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.1",
     "express": "^4.14.0",
@@ -50,19 +47,12 @@
     "lodash": "^4.17.2",
     "method-override": "^2.3.5",
     "mongoose": "^4.11.5",
-    "mongoose-aliasfield": "^0.3.7",
     "mssql": "^4.0.4",
     "nodemailer": "^4.0.1",
     "nodemailer-smtp-transport": "^2.7.2",
-    "promise": "^8.0.1",
     "winston": "^2.3.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.24.1",
-    "babel-core": "^6.25.0",
-    "babel-plugin-add-module-exports": "0.2.1",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-stage-2": "^6.24.1",
     "chai": "^4.1.0",
     "commitizen": "^2.8.2",
     "coveralls": "^2.11.6",
@@ -73,17 +63,11 @@
     "eslint-plugin-import": "2.7.0",
     "eslint-plugin-require-jsdoc": "1.0.4",
     "eslint-watch": "^3.1.2",
-    "ghooks": "^2.0.0",
-    "gulp": "3.9.1",
-    "gulp-babel": "6.1.2",
-    "gulp-load-plugins": "^1.2.0",
-    "gulp-newer": "^1.1.0",
-    "gulp-nodemon": "^2.0.6",
-    "gulp-sourcemaps": "^2.6.0",
-    "gulp-util": "^3.0.7",
+    "husky": "0.14.3",
     "isparta": "4.0.0",
-    "mocha": "^3.5.0",
+    "mocha": "^3.5.3",
     "nodemon": "1.11.0",
+    "nyc": "11.2.1",
     "pm2": "^2.6.1",
     "run-sequence": "^2.1.0",
     "supertest": "^3.0.0",
@@ -91,18 +75,8 @@
     "validate-commit-msg": "^2.6.1"
   },
   "config": {
-    "ghooks": {},
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  },
-  "babel": {
-    "presets": [
-      "es2015",
-      "stage-2"
-    ],
-    "plugins": [
-      "add-module-exports"
-    ]
   }
 }

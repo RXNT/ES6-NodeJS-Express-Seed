@@ -1,6 +1,6 @@
-import nodemailer from 'nodemailer';
-import smtpTransport from 'nodemailer-smtp-transport';
-import config from '../../config';
+const nodemailer = require('nodemailer');
+const smtpTransport = require('nodemailer-smtp-transport');
+const config = require('../../config');
 
 // smtp configuration
 const mailTransport = nodemailer.createTransport(smtpTransport(config.smtpSettings));
@@ -24,6 +24,6 @@ const sendEmail = (toEmail, mailSubject, mailBody) => {
   });
 };
 
-export default {
+module.exports = {
   sendEmail,
 };

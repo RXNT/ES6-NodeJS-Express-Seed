@@ -1,5 +1,5 @@
-import appLogger from './app-logger';
-import appConstants from '../app.constants';
+const appLogger = require('./app-logger');
+const appConstants = require('../app.constants');
 
 /**
  * Send 200 Response to Client
@@ -22,6 +22,22 @@ const send200 = (req, resp, data) => { // eslint-disable-line no-unused-vars
  */
 const sendJson = (req, resp, data) => { // eslint-disable-line no-unused-vars
   resp.writeHead(200, {
+    'Content-Type': 'application/json',
+  });
+  if (data) resp.write(JSON.stringify(data));
+  resp.end();
+};
+
+/**
+ * Send Response with HTTP_ERR_CODE, useful for error cases.
+ * @param  {[type]} req           [description]
+ * @param  {[type]} resp          [description]
+ * @param  {[type]} data          [description]
+ * @param  {[type]} HTTP_ERR_CODE [description]
+ * @return {[type]}               [description]
+ */
+module.exports.sendJsonErr = (req, resp, data, HTTP_ERR_CODE) => { // eslint-disable-line
+  resp.writeHead(HTTP_ERR_CODE, {
     'Content-Type': 'application/json',
   });
   if (data) resp.write(JSON.stringify(data));
@@ -94,7 +110,7 @@ const show405 = (req, resp) => {
   resp.end();
 };
 
-export default {
+module.exports = {
   send200,
   sendJson,
   show500,

@@ -1,7 +1,7 @@
-import config from '../../config';
-import appConstants from '../app.constants';
-import appLogger from './app-logger';
-import emailHelper from './email';
+const config = require('../../config');
+const appConstants = require('../app.constants');
+const appLogger = require('./app-logger');
+const emailHelper = require('./email');
 
 /**
  * Get current UTC date and time
@@ -70,22 +70,23 @@ const prepareErrorObject = (err, req) => {
   }
 
   let response = {};
-  if (err.stackTrace !== null && err.stackTrace !== undefined && err.stackTrace !== '') {
-    response = {
-      ValidationStatus: appConstants.validationStatus.failed,
-      ValidationMessages: [appConstants.applicationMessages.internalServerError],
-    };
-  } else if (err.actualErr) {
+
+  if (err.eventType === appConstants.eventType.applicationError) {
     response = {
       ValidationStatus: appConstants.validationStatus.failed,
       ValidationMessages: [err.message],
+    };
+  } else {
+    response = {
+      ValidationStatus: appConstants.validationStatus.failed,
+      ValidationMessages: [appConstants.applicationMessages.internalServerError],
     };
   }
 
   return response;
 };
 
-export default {
+module.exports = {
   getCurrentUTCISODateTime,
   prepareErrorObject,
 };

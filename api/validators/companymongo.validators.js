@@ -1,7 +1,7 @@
-import BaseJoi from 'joi';
-import Extension from 'joi-date-extensions';
-import validateHelper from './validate.helper';
-import appConstants from '../app.constants';
+const BaseJoi = require('joi');
+const Extension = require('joi-date-extensions');
+const validateHelper = require('./validate.helper');
+const appConstants = require('../app.constants');
 
 const Joi = BaseJoi.extend(Extension);
 
@@ -31,6 +31,6 @@ const validateGetCompanies = (request, callback) => {
   }
 };
 
-export default {
+module.exports = {
   validateGetCompanies,
 };

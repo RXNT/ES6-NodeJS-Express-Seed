@@ -1,20 +1,14 @@
 
-import https from 'https';
-import http from 'http';
-import mongoose from 'mongoose';
+const https = require('https');
+const http = require('http');
 
-import sslConfig from './api/helpers/ssl-config';
-import config from './config';
-import mongoConn from './api/helpers/mongo-db-helpers';  // eslint-disable-line
+const sslConfig = require('./api/helpers/ssl-config');
+const config = require('./config');
+let mongoConn = require('./api/helpers/mongo-db-helpers');  // eslint-disable-line
 
-import express from './api/express';
-// make bluebird default Promise
-Promise = require('bluebird'); // eslint-disable-line no-global-assign
+const express = require('./api/express');
 
 let server;
-
-// plugin bluebird promise in mongoose
-mongoose.Promise = Promise;
 
 /**
  * This method starts api service

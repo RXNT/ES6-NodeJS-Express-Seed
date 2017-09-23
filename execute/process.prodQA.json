@@ -5,6 +5,7 @@
     "watch"       : false,
     "env": {
       "DeploymentEnv": "prodQA",
+      "NODE_ENV": "prodQA"
     }
   }]
 }

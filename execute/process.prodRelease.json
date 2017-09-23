@@ -5,6 +5,7 @@
     "watch"       : false,
     "env": {
       "DeploymentEnv": "prodRelease",
+      "NODE_ENV": "prodRelease"
     }
   }]
 }

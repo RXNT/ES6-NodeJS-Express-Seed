@@ -5,6 +5,7 @@
 - [Create new Student API using SqlServer](#create-new-student-api-using-sqlserver)
 - [All Commands](#all-commands)
 - [Configuration](#configuration)
+- [Migrating](#migrating)
 
 <!-- /TOC -->
 
@@ -17,13 +18,17 @@
   yarn start
   ```
 
+- NOTE: Due to incompatibilities with babel and node, and the maturity of Node's ES6 support, this project does not use babel.
+
+- Reference node.green for EcmaScript features that you're allowed to use. http://node.green/ . This project is designed to work with node 6.11.3 or higher. Node 6.11.3 supports 99% of ES6 syntax - everything except ES6 modules (import & export) will be OK, please use standard Node commonJS modules instead. If you choose a newer version, reference node.green to verify which features are allowed. (Node is planning to release support for ES6 modules in winter 2017 - reference node.green to confirm before using this feature.)
+
 # Create new Student API using MongoDB
 
-We will follow the instructions by adding a `Student` registartion API which will connect to mongodb
+We will follow the instructions by adding a `Student` registration API which will connect to mongodb
 
 1. Create mongodb collection model under `api\models` folder
 
-2. Import model created in `step(1)` in `api\models\index`
+2. load model created in `step(1)` in `api\models\index` (use commonJS, e.g. let ex = require('ex.js'))
 
 3. Add new validator file under `api\validators\student.validators.js` to implement request validation using `Joi`
 
@@ -39,7 +44,7 @@ We will follow the instructions by adding a `Student` registartion API which wil
 
 5. Define API route path for new method under `api\app.constants.js` as below
 
-   `exports.studentController = {
+   `module.exports.studentController = {
       routeName: '/students',
       routeMethods: {
         registerStudentRoute: '/registerStudent',
@@ -48,25 +53,25 @@ We will follow the instructions by adding a `Student` registartion API which wil
 
 6. Create new route file under `api\routes\student.route.js`. Attach route path(defined in `step-5`) and controller method(defined in `step-4`) as below
 
-    `import express from 'express';`
+    `let express = require('express');`
 
-    `import studentCtrl from '../controllers/student.controller';`
+    `let studentCtrl = require('../controllers/student.controller');`
 
-    `import appConstants from '../app.constants';`
+    `let appConstants = require('../app.constants');`
 
     `const router = express.Router();`
 
     `router.route(appConstants.studentController.routeMethods.registerStudentRoute).post(studentCtrl.registerStudent);`
 
-7.  Import route file(defined in `step-6`) in `api\routes\index.route.js` file and attach route
+7.  load route file(defined in `step-6`) in `api\routes\index.route.js` file and attach route
 
-    `import studentRoutes from './student.route';`
+    `let studentRoutes = require('./student.route');`
 
     `router.use(appConstants.studentController.routeName, studentRoutes);`
 
 # Create new Student API using SqlServer
 
-We will follow the instructions by adding a `Student` registartion API which will connect to mongodb
+We will follow the instructions by adding a `Student` registration API which will connect to mongodb
 
 1. Add new `student.dal.js` file under `api\dal` folder
 
@@ -78,7 +83,7 @@ We will follow the instructions by adding a `Student` registartion API which wil
 
 3. Add new controller under `api\controllers` folder with file name as `student.controller.js`
 
-   a. Export a method named as `registerStudent`
+   a. Export a method named as `registerStudent` using commonJS (module.exports.X = Y)
 
    b. Before processing request, validate request object by importing validator method created in `step (3)`
 
@@ -86,7 +91,7 @@ We will follow the instructions by adding a `Student` registartion API which wil
 
 4. Define API route path for new method under `api\app.constants.js` as below
 
-   `exports.studentController = {
+   `module.exports.studentController = {
       routeName: '/students',
       routeMethods: {
         registerStudentRoute: '/registerStudent',
@@ -95,46 +100,42 @@ We will follow the instructions by adding a `Student` registartion API which wil
 
 5. Create new route file under `api\routes\student.route.js`. Attach route path(defined in `step-5`) and controller method(defined in `step-4`) as below
 
-    `import express from 'express';`
+    `let express = require('express');`
 
-    `import studentCtrl from '../controllers/student.controller';`
+    `let studentCtrl = require('../controllers/student.controller');`
 
-    `import appConstants from '../app.constants';`
+    `let appConstants = require('../app.constants');`
 
     `const router = express.Router();`
 
     `router.route(appConstants.studentController.routeMethods.registerStudentRoute).post(studentCtrl.registerStudent);`
 
-6.  Import route file(defined in `step-6`) in `api\routes\index.route.js` file and attach route
+6.  load route file(defined in `step-6`) in `api\routes\index.route.js` file and attach route
 
-    `import studentRoutes from './student.route';`
+    `let studentRoutes = require('./student.route');`
 
     `router.use(appConstants.studentController.routeName, studentRoutes);`
 
 # All Commands
-
+- Test - runs mocha tests with name test/XXX.spec.js
+  ```bash
+  yarn test
+  ```
 - Start service in development environment
   ```bash
   yarn run start
   ```
-- Transpile service from ES6 to ES5 for devQA Or prodQA or prodRelease environments
-  ```bash
-  yarn run build
-  ```
 - Start/Stop service in `devQA` environment.
-  Naviagate to `dist` folder created in step (2) and execute below commands to start/stop service
   ```bash
   yarn run startdevqa
   yarn run stopdevqa
   ```
 - Start/Stop service in `prodQA` environment
-  Naviagate to `dist` folder created in step (2) and execute below commands to start/stop service
   ```bash
   yarn run startprodqa
   yarn run stopprodqa
   ```
 - Start/Stop service in `prodRelease` environment
-  Naviagate to `dist` folder created in step (2) and execute below commands to start/stop service
   ```bash
   yarn run startprodrelease
   yarn run stopprodrelease
@@ -152,3 +153,18 @@ We will follow the instructions by adding a `Student` registartion API which wil
   - secureCommunication - Whether to use SSL for service or not
   - mongoConnectionString - MongoDB connection string
   - sqlConnectionString - SQL Server connection string
+
+# Migrating
+## Notes on older ES6 seed (pre October 2017)
+
+- The previous version of this repository relied on transpiling of babel code. In order to start production scripts with the previous version, it was necessary to navigate to the transpiled code folder (dist) then execute start commands. Debugging these scripts would have revealed transpiled code... To run this version, transpiling is not used (babel is not used). Simply run the start scripts from the project home directory. Errors and debugging will point to raw source code.
+
+- Mongoose-aliasfield was deprecated by the creator and has been replaced in this project with mongoose's new built-in alias functionality. This works slightly differently from aliasfield. See companymongo.controller.js for more information.
+
+- Husky is used instead of ghooks. Ghooks was deprecated by it's creator in favor of husky.
+
+- Node config is now used. This means NODE_ENV must be set before running scripts. NODE_ENV is set by your execute/process.X.json scripts, and also in package.json by your development and test scripts.
+
+- Bluebird and promise polyfills are removed. Node 6.11.3 and greater support ES6's built-in Promise.
+
+- Mocha testing is supported, and istanbul runs automatically when testing.
